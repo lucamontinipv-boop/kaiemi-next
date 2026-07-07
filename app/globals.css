@@ -466,7 +466,7 @@ header.nav{
 }
 .card-learn p{ margin:0; font-weight:700; font-size:0.98rem; line-height:1.4;}
 
-/* AutoritÃ  */
+/* AutoritÃƒ  */
 .card-auth{
   flex:0 0 auto;
   width:min(220px, 60vw);
@@ -822,13 +822,13 @@ footer{
 }
 
 
-/* ================= HERO CLIENT UPDATE - FOTO SOPRA + 3 CARD VERTICALI ================= */
+/* ================= HERO CLIENT UPDATE - BANNER FULL WIDTH + 3 BOX ORIZZONTALI ================= */
 
-/* Foto 1 sopra al titolo */
+/* Foto 1 sopra al titolo: larga, a effetto banner, leggermente tagliata */
 .hero-top-image {
-  width: min(760px, 100%);
-  margin: 0 auto 42px;
-  border-radius: 32px;
+  width: min(1080px, calc(100vw - 32px));
+  margin: 0 auto 46px;
+  border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 24px 70px rgba(31, 42, 50, 0.16);
   background: var(--card);
@@ -836,70 +836,86 @@ footer{
 
 .hero-top-image img {
   width: 100%;
-  height: 280px;
+  height: clamp(190px, 30vw, 320px);
   object-fit: cover;
-  object-position: center center;
+  object-position: center 45%;
   display: block;
 }
 
-/* Nuovo blocco statistiche: tre riquadri separati verticali */
+/* Vecchio blocco hero-visual nascosto: non serve piÃ¹ */
+.hero-visual {
+  display: none;
+}
+
+/* Nuovo blocco statistiche: tre box affiancati */
 .hero-stats-grid {
-  width: min(760px, 100%);
-  margin: 56px auto 0;
+  width: min(820px, 100%);
+  margin: 46px auto 0;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
 }
 
 .hero-stat-card {
   background: linear-gradient(135deg, var(--charcoal) 0%, var(--charcoal-soft) 100%);
   color: var(--cream-soft);
-  border-radius: 28px;
-  padding: 34px 24px;
+  border-radius: 24px;
+  padding: 30px 12px;
   text-align: center;
-  box-shadow: 0 18px 50px rgba(31, 42, 50, 0.16);
+  box-shadow: 0 18px 50px rgba(31, 42, 50, 0.14);
 }
 
 .hero-stat-card strong {
   display: block;
   font-family: "Baloo 2", sans-serif;
   color: var(--teal-light);
-  font-size: clamp(2.4rem, 8vw, 4rem);
+  font-size: clamp(2rem, 7vw, 3.2rem);
   line-height: 1;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .hero-stat-card span {
   display: block;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  font-size: clamp(0.62rem, 2vw, 0.82rem);
+  line-height: 1.35;
   font-weight: 800;
   color: rgba(247, 240, 223, 0.72);
 }
 
-/* Se nel vecchio markup rimane il blocco hero-visual, lo nascondiamo */
-.hero-visual {
-  display: none;
-}
-
+/* Mobile: resta sempre a 3 colonne, ma piÃ¹ compatto */
 @media (max-width: 640px) {
   .hero-top-image {
-    margin-bottom: 34px;
+    width: calc(100vw - 28px);
+    margin-bottom: 38px;
     border-radius: 26px;
   }
 
   .hero-top-image img {
-    height: 220px;
+    height: 205px;
+    object-position: center 45%;
   }
 
   .hero-stats-grid {
-    margin-top: 44px;
-    gap: 14px;
+    width: calc(100vw - 32px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 40px;
   }
 
   .hero-stat-card {
-    border-radius: 24px;
-    padding: 30px 20px;
+    border-radius: 20px;
+    padding: 24px 6px;
+  }
+
+  .hero-stat-card strong {
+    font-size: 2.25rem;
+    margin-bottom: 8px;
+  }
+
+  .hero-stat-card span {
+    font-size: 0.56rem;
+    letter-spacing: 0.07em;
   }
 }
