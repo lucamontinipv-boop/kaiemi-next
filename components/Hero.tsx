@@ -5,7 +5,6 @@ export default function Hero() {
       <div className="hero-blob blob-2" />
 
       <div className="container hero-inner">
-        <div className="hero-badge reveal">✦ Percorso 1:1 · Massimo 5 persone al mese</div>
         <h1 className="reveal">
           Costruisci il tuo personal brand. <span className="line2">Senza pubblicare a caso.</span>
         </h1>
@@ -19,13 +18,12 @@ export default function Hero() {
           <a href="#metodo" className="btn btn-secondary">Scopri il percorso</a>
         </div>
 
-        <p className="anti-fuffa-small reveal">Non devi diventare influencer. Devi costruire qualcosa di tuo.</p>
       </div>
 
       <div className="container">
         <div className="hero-visual reveal">
           <div className="hero-img-wrap">
-            <img src="/images/hero-roadmap.webp" alt="Percorso di crescita del personal brand" width="820" height="380" />
+            <img src="/images/foto-1.jpg" alt="Kaiemi Coaching" width="820" height="520" />
             <div className="hero-float-card fc-1">👋 Ciao, sono Noemi</div>
             <div className="hero-float-card fc-2">🎯 Strategia su misura</div>
           </div>
