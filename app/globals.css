@@ -919,3 +919,209 @@ footer{
     letter-spacing: 0.07em;
   }
 }
+/* ================= CLIENT RESTYLE - PALETTE + HERO FULL WIDTH ================= */
+
+:root {
+  --cream: #faf3e1;
+  --cream-soft: #f5e7c6;
+  --card: #faf3e1;
+  --charcoal: #222222;
+  --charcoal-soft: #2b2b2b;
+  --teal: #222222;
+  --teal-dark: #222222;
+  --teal-light: #ff6d1f;
+  --teal-pale: #f5e7c6;
+  --terracotta: #ff6d1f;
+  --terracotta-pale: #f5e7c6;
+  --gold: #ff6d1f;
+  --ink: #222222;
+  --body-text: rgba(34, 34, 34, 0.72);
+  --body-text-soft: rgba(34, 34, 34, 0.48);
+  --white: #ffffff;
+  --line: rgba(34, 34, 34, 0.12);
+  --shadow: 0 24px 60px -28px rgba(34, 34, 34, 0.28);
+  --shadow-sm: 0 14px 32px -20px rgba(34, 34, 34, 0.22);
+}
+
+/* sfondo più pulito */
+body {
+  background: var(--cream);
+}
+
+/* navbar coerente con nuova palette */
+header.nav {
+  background: rgba(250, 243, 225, 0.9);
+  border-bottom: 1px solid rgba(34, 34, 34, 0.1);
+}
+
+.logo {
+  color: var(--charcoal);
+}
+
+.nav-cta,
+.btn-primary {
+  background: var(--charcoal);
+  color: var(--cream);
+  box-shadow: none;
+}
+
+.btn-primary:hover,
+.nav-cta:hover {
+  background: var(--terracotta);
+  color: var(--charcoal);
+}
+
+.btn-secondary {
+  color: var(--charcoal);
+  border: 2px solid var(--charcoal);
+}
+
+.btn-secondary:hover {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: var(--charcoal);
+}
+
+/* Hero più editoriale */
+.hero {
+  padding-top: 0;
+}
+
+/* Immagine full width: non più card */
+.hero-top-image {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: clamp(44px, 7vw, 72px);
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Banner tagliato orizzontale */
+.hero-top-image img {
+  width: 100%;
+  height: clamp(260px, 48vw, 560px);
+  object-fit: cover;
+  object-position: center 45%;
+  display: block;
+}
+
+/* Dopo la foto, il testo rimane dentro container */
+.hero h1 {
+  color: var(--charcoal);
+}
+
+.hero h1 .line2 {
+  color: var(--terracotta);
+}
+
+.hero .sub {
+  color: var(--body-text);
+}
+
+.hero .micro {
+  color: rgba(34, 34, 34, 0.5);
+}
+
+/* box 4+1 / 1:1 / 5 */
+.hero-stats-grid {
+  width: min(820px, 100%);
+  margin: 46px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.hero-stat-card {
+  background: var(--charcoal);
+  color: var(--cream);
+  border-radius: 0;
+  padding: 30px 12px;
+  text-align: center;
+  box-shadow: none;
+}
+
+.hero-stat-card strong {
+  display: block;
+  font-family: "Baloo 2", sans-serif;
+  color: var(--terracotta);
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.hero-stat-card span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: clamp(0.62rem, 2vw, 0.82rem);
+  line-height: 1.35;
+  font-weight: 800;
+  color: rgba(250, 243, 225, 0.68);
+}
+
+/* sezioni alternate nuova palette */
+.problema,
+.impari,
+.finale {
+  background: var(--cream-soft);
+}
+
+.card-problem,
+.card-learn,
+.offer-card,
+.faq-item,
+.pd-card.prima {
+  background: var(--card);
+  border-color: var(--line);
+}
+
+.card-phase {
+  background: var(--card);
+  border-top-color: var(--terracotta);
+}
+
+.card-phase:nth-child(2n) {
+  border-top-color: var(--charcoal);
+}
+
+.antifuffa,
+.pd-card.dopo {
+  background: var(--charcoal);
+}
+
+/* mobile */
+@media (max-width: 640px) {
+  .hero-top-image {
+    width: 100vw;
+    margin-bottom: 42px;
+  }
+
+  .hero-top-image img {
+    height: 330px;
+    object-position: center 45%;
+  }
+
+  .hero-stats-grid {
+    width: calc(100vw - 32px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 40px;
+  }
+
+  .hero-stat-card {
+    padding: 24px 6px;
+  }
+
+  .hero-stat-card strong {
+    font-size: 2.25rem;
+    margin-bottom: 8px;
+  }
+
+  .hero-stat-card span {
+    font-size: 0.56rem;
+    letter-spacing: 0.07em;
+  }
+}
