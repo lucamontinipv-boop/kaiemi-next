@@ -4,11 +4,11 @@ export default function Hero() {
       <div className="hero-blob blob-1" />
       <div className="hero-blob blob-2" />
 
-      <div className="container hero-inner">
-        <div className="hero-top-image reveal">
-          <img src="/images/foto-1.jpg" alt="Kaiemi Coaching" />
-        </div>
+      <div className="hero-top-image reveal">
+        <img src="/images/foto-1.jpg" alt="Kaiemi Coaching" />
+      </div>
 
+      <div className="container hero-inner">
         <h1 className="reveal">
           Costruisci il tuo personal brand.{" "}
           <span className="line2">Senza pubblicare a caso.</span>

@@ -826,19 +826,19 @@ footer{
 
 /* Foto 1 sopra al titolo: larga, a effetto banner, leggermente tagliata */
 .hero-top-image {
-  width: min(1080px, calc(100vw - 32px));
-  margin: 0 auto 46px;
-  border-radius: 30px;
+  width: min(1140px, calc(100vw - 48px));
+  margin: 0 auto 48px;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 24px 70px rgba(31, 42, 50, 0.16);
-  background: var(--card);
+  box-shadow: none;
+  background: transparent;
 }
 
 .hero-top-image img {
   width: 100%;
-  height: clamp(190px, 30vw, 320px);
+  height: 240px;
   object-fit: cover;
-  object-position: center 45%;
+  object-position: center center;
   display: block;
 }
 
@@ -886,16 +886,24 @@ footer{
 
 /* Mobile: resta sempre a 3 colonne, ma piÃ¹ compatto */
 @media (max-width: 640px) {
-  .hero-top-image {
-    width: calc(100vw - 28px);
-    margin-bottom: 38px;
-    border-radius: 26px;
-  }
+ .hero-top-image {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 48px;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  background: transparent;
+}
 
-  .hero-top-image img {
-    height: 205px;
-    object-position: center 45%;
-  }
+.hero-top-image img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
 
   .hero-stats-grid {
     width: calc(100vw - 32px);
@@ -989,22 +997,19 @@ header.nav {
 
 /* Immagine full width: non più card */
 .hero-top-image {
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: clamp(44px, 7vw, 72px);
+  width: min(720px, calc(100vw - 32px));
+  margin: 0 auto 42px;
   border-radius: 0;
   overflow: hidden;
   box-shadow: none;
   background: transparent;
 }
 
-/* Banner tagliato orizzontale */
 .hero-top-image img {
   width: 100%;
-  height: clamp(260px, 48vw, 560px);
+  height: 220px;
   object-fit: cover;
-  object-position: center 45%;
+  object-position: center center;
   display: block;
 }
 
@@ -1096,12 +1101,385 @@ header.nav {
 @media (max-width: 640px) {
   .hero-top-image {
     width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 36px;
+  }
+
+  .hero-top-image img {
+    height: 180px;
+    object-position: center center;
+  }
+
+  .hero-stats-grid {
+    width: calc(100vw - 32px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 40px;
+  }
+
+  .hero-stat-card {
+    padding: 24px 6px;
+  }
+
+  .hero-stat-card strong {
+    font-size: 2.25rem;
+    margin-bottom: 8px;
+  }
+
+  .hero-stat-card span {
+    font-size: 0.56rem;
+    letter-spacing: 0.07em;
+  }
+}/* ================= HERO FINAL FIX - FOTO EDGE TO EDGE + PALETTE ================= */
+
+:root {
+  --cream: #faf3e1;
+  --cream-soft: #f5e7c6;
+  --card: #faf3e1;
+  --charcoal: #222222;
+  --charcoal-soft: #2b2b2b;
+  --teal: #222222;
+  --teal-dark: #222222;
+  --teal-light: #ff6d1f;
+  --teal-pale: #f5e7c6;
+  --terracotta: #ff6d1f;
+  --terracotta-pale: #f5e7c6;
+  --gold: #ff6d1f;
+  --ink: #222222;
+  --body-text: rgba(34, 34, 34, 0.72);
+  --body-text-soft: rgba(34, 34, 34, 0.48);
+  --white: #ffffff;
+  --line: rgba(34, 34, 34, 0.12);
+  --shadow: 0 24px 60px -28px rgba(34, 34, 34, 0.28);
+  --shadow-sm: 0 14px 32px -20px rgba(34, 34, 34, 0.22);
+}
+
+body {
+  background: var(--cream);
+}
+
+header.nav {
+  background: rgba(250, 243, 225, 0.92);
+  border-bottom: 1px solid rgba(34, 34, 34, 0.1);
+}
+
+.logo {
+  color: var(--charcoal);
+}
+
+.nav-cta,
+.btn-primary {
+  background: var(--charcoal);
+  color: var(--cream);
+  box-shadow: none;
+}
+
+.btn-primary:hover,
+.nav-cta:hover {
+  background: var(--terracotta);
+  color: var(--charcoal);
+}
+
+.btn-secondary {
+  color: var(--charcoal);
+  border: 2px solid var(--charcoal);
+}
+
+.btn-secondary:hover {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: var(--charcoal);
+}
+
+/* Hero senza spazio sopra */
+.hero {
+  padding-top: 0;
+}
+
+/* FOTO HERO: stessa larghezza del sito, senza margini laterali interni */
+.hero-top-image {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 56px;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  background: var(--cream-soft);
+}
+
+/* Foto tagliata orizzontale, centrata meglio sul soggetto */
+.hero-top-image img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: 68% center;
+  display: block;
+}
+
+/* Testi hero */
+.hero h1 {
+  color: var(--charcoal);
+}
+
+.hero h1 .line2 {
+  color: var(--terracotta);
+}
+
+.hero .sub {
+  color: var(--body-text);
+}
+
+.hero .micro {
+  color: rgba(34, 34, 34, 0.5);
+}
+
+/* Nasconde definitivamente vecchio blocco immagine/statistiche */
+.hero-visual {
+  display: none !important;
+}
+
+/* Statistiche: tre box orizzontali */
+.hero-stats-grid {
+  width: min(820px, 100%);
+  margin: 46px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.hero-stat-card {
+  background: var(--charcoal);
+  color: var(--cream);
+  border-radius: 0;
+  padding: 30px 12px;
+  text-align: center;
+  box-shadow: none;
+}
+
+.hero-stat-card strong {
+  display: block;
+  font-family: "Baloo 2", sans-serif;
+  color: var(--terracotta);
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.hero-stat-card span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: clamp(0.62rem, 2vw, 0.82rem);
+  line-height: 1.35;
+  font-weight: 800;
+  color: rgba(250, 243, 225, 0.68);
+}
+
+/* Nuova palette sulle sezioni */
+.problema,
+.impari,
+.finale {
+  background: var(--cream-soft);
+}
+
+.card-problem,
+.card-learn,
+.offer-card,
+.faq-item,
+.pd-card.prima {
+  background: var(--card);
+  border-color: var(--line);
+}
+
+.card-phase {
+  background: var(--card);
+  border-top-color: var(--terracotta);
+}
+
+.card-phase:nth-child(2n) {
+  border-top-color: var(--charcoal);
+}
+
+.antifuffa,
+.pd-card.dopo {
+  background: var(--charcoal);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .hero-top-image {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
     margin-bottom: 42px;
   }
 
   .hero-top-image img {
-    height: 330px;
-    object-position: center 45%;
+    height: 220px;
+    object-position: 68% center;
+  }
+
+  .hero-stats-grid {
+    width: calc(100vw - 32px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 40px;
+  }
+
+  .hero-stat-card {
+    padding: 24px 6px;
+  }
+
+  .hero-stat-card strong {
+    font-size: 2.25rem;
+    margin-bottom: 8px;
+  }
+
+  .hero-stat-card span {
+    font-size: 0.56rem;
+    letter-spacing: 0.07em;
+  }
+}/* ================= HERO DEFINITIVA ================= */
+
+.hero {
+  padding-top: 0;
+  overflow: hidden;
+}
+
+/* Foto fuori dal container: prende tutta la larghezza del sito */
+.hero-top-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0 0 56px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.hero-top-image img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+/* Nasconde vecchio blocco se ancora presente */
+.hero-visual {
+  display: none !important;
+}
+
+/* Palette */
+:root {
+  --cream: #faf3e1;
+  --cream-soft: #f5e7c6;
+  --card: #faf3e1;
+  --charcoal: #222222;
+  --charcoal-soft: #2b2b2b;
+  --teal: #222222;
+  --teal-dark: #222222;
+  --teal-light: #ff6d1f;
+  --teal-pale: #f5e7c6;
+  --terracotta: #ff6d1f;
+  --terracotta-pale: #f5e7c6;
+  --gold: #ff6d1f;
+  --ink: #222222;
+  --body-text: rgba(34, 34, 34, 0.72);
+  --body-text-soft: rgba(34, 34, 34, 0.48);
+  --white: #ffffff;
+  --line: rgba(34, 34, 34, 0.12);
+}
+
+body {
+  background: var(--cream);
+}
+
+header.nav {
+  background: rgba(250, 243, 225, 0.92);
+  border-bottom: 1px solid rgba(34, 34, 34, 0.1);
+}
+
+.logo {
+  color: var(--charcoal);
+}
+
+.nav-cta,
+.btn-primary {
+  background: var(--charcoal);
+  color: var(--cream);
+  box-shadow: none;
+}
+
+.btn-secondary {
+  color: var(--charcoal);
+  border: 2px solid var(--charcoal);
+}
+
+.hero h1 {
+  color: var(--charcoal);
+}
+
+.hero h1 .line2 {
+  color: var(--terracotta);
+}
+
+.hero .sub {
+  color: var(--body-text);
+}
+
+.hero .micro {
+  color: rgba(34, 34, 34, 0.5);
+}
+
+/* Tre box 4+1 / 1:1 / 5 */
+.hero-stats-grid {
+  width: min(820px, 100%);
+  margin: 46px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.hero-stat-card {
+  background: var(--charcoal);
+  color: var(--cream);
+  border-radius: 0;
+  padding: 30px 12px;
+  text-align: center;
+  box-shadow: none;
+}
+
+.hero-stat-card strong {
+  display: block;
+  font-family: "Baloo 2", sans-serif;
+  color: var(--terracotta);
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.hero-stat-card span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: clamp(0.62rem, 2vw, 0.82rem);
+  line-height: 1.35;
+  font-weight: 800;
+  color: rgba(250, 243, 225, 0.68);
+}
+
+@media (max-width: 640px) {
+  .hero-top-image {
+    margin-bottom: 42px;
+  }
+
+  .hero-top-image img {
+    height: 200px;
+    object-position: center center;
   }
 
   .hero-stats-grid {
