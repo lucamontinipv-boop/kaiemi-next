@@ -280,7 +280,7 @@ footer{padding:36px 0;text-align:center;font-size:.85rem;color:var(--body-text-s
 /* --- Patch 08/07: anchor offset, hero cleanup, map carousel --- */
 #metodo,
 #offerta{
-  scroll-margin-top:clamp(96px,12vw,132px);
+  scroll-margin-top:clamp(110px,13vw,148px);
 }
 
 .hero .micro{display:none!important;}
@@ -299,32 +299,22 @@ footer{padding:36px 0;text-align:center;font-size:.85rem;color:var(--body-text-s
   position:absolute;
   inset:0;
   background:
-    linear-gradient(90deg, rgba(34,34,34,.045) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(34,34,34,.035) 1px, transparent 1px);
-  background-size:160px 160px;
-  opacity:.28;
+    radial-gradient(circle at 8% 16%, rgba(34,34,34,.08) 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 72%, rgba(34,34,34,.06) 0 1px, transparent 2px);
+  background-size:140px 140px, 180px 180px;
+  opacity:.25;
   pointer-events:none;
 }
 
 .problem-map-section::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  top:52%;
-  height:2px;
-  background-image:linear-gradient(90deg, var(--charcoal) 45%, transparent 0);
-  background-size:14px 2px;
-  opacity:.85;
-  transform:translateY(-50%);
-  pointer-events:none;
+  display:none;
 }
 
 .problem-map-head{
   position:relative;
-  z-index:2;
+  z-index:3;
   max-width:760px;
-  margin-bottom:clamp(28px,4.5vw,44px);
+  margin-bottom:clamp(18px,3.5vw,30px);
 }
 
 .problem-map-head h2{
@@ -335,56 +325,77 @@ footer{padding:36px 0;text-align:center;font-size:.85rem;color:var(--body-text-s
   position:relative;
   z-index:2;
   min-height:330px;
+  padding-top:8px;
+}
+
+.map-path-svg{
+  position:absolute;
+  left:0;
+  right:0;
+  top:72px;
+  width:100%;
+  height:250px;
+  z-index:0;
+  pointer-events:none;
+  opacity:.92;
+}
+
+.map-path-svg path{
+  fill:none;
+  stroke:rgba(34,34,34,.88);
+  stroke-width:3.5;
+  stroke-linecap:round;
+  stroke-dasharray:2 14;
+}
+
+.map-path-svg .map-path-soft{
+  stroke:rgba(34,34,34,.14);
+  stroke-width:2;
+  stroke-dasharray:2 18;
 }
 
 .problem-map-section .marquee-wrap{
+  position:relative;
+  z-index:2;
   margin-top:0;
-  padding-top:34px;
-  padding-bottom:54px;
+  padding-top:46px;
+  padding-bottom:60px;
 }
 
 .problem-map-section .marquee-track,
 .problem-map-section .marquee-set{
   align-items:center;
-  gap:90px;
+  gap:96px;
 }
 
 .map-step{
   flex:0 0 auto;
   position:relative;
-  width:220px;
-  height:220px;
+  width:172px;
+  height:172px;
   border-radius:50%;
-  background:rgba(255,249,234,.92);
+  background:rgba(255,249,234,.94);
   border:2px solid rgba(34,34,34,.08);
-  box-shadow:0 22px 45px -26px rgba(34,34,34,.45);
+  box-shadow:0 18px 40px -25px rgba(34,34,34,.42);
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:28px 28px 24px;
+  padding:22px 20px 18px;
 }
 
 .map-step::after{
-  content:"";
-  position:absolute;
-  right:-82px;
-  top:50%;
-  width:72px;
-  height:2px;
-  background-image:linear-gradient(90deg, var(--charcoal) 45%, transparent 0);
-  background-size:13px 2px;
-  opacity:.9;
+  display:none;
 }
 
 .map-step-number{
   position:absolute;
-  top:-18px;
+  top:-15px;
   left:50%;
   transform:translateX(-50%);
-  width:42px;
-  height:42px;
+  width:36px;
+  height:36px;
   border-radius:50%;
   background:var(--tangerine);
   color:var(--cream);
@@ -392,30 +403,30 @@ footer{padding:36px 0;text-align:center;font-size:.85rem;color:var(--body-text-s
   align-items:center;
   justify-content:center;
   font-weight:900;
-  font-size:1.05rem;
-  box-shadow:0 10px 22px -14px rgba(34,34,34,.5);
+  font-size:.98rem;
+  box-shadow:0 10px 20px -14px rgba(34,34,34,.5);
 }
 
 .map-step-icon{
-  width:52px;
-  height:52px;
-  border-radius:20px;
+  width:42px;
+  height:42px;
+  border-radius:16px;
   background:rgba(255,109,31,.12);
   color:var(--charcoal);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:1.75rem;
+  font-size:1.28rem;
   line-height:1;
-  margin-bottom:14px;
+  margin-bottom:10px;
 }
 
 .map-step p{
   margin:0;
   color:var(--charcoal);
   font-weight:900;
-  line-height:1.26;
-  font-size:1rem;
+  line-height:1.22;
+  font-size:.82rem;
 }
 
 .map-step p span{
@@ -423,33 +434,28 @@ footer{padding:36px 0;text-align:center;font-size:.85rem;color:var(--body-text-s
 }
 
 .map-step-line{
-  width:34px;
+  width:32px;
   height:3px;
   background:var(--tangerine);
-  margin-top:14px;
+  margin-top:12px;
   display:block;
 }
 
 .map-step-2,
 .map-step-4{
-  transform:translateY(72px);
+  transform:translateY(78px);
+}
+
+.map-step-3{
+  transform:translateY(-18px);
 }
 
 .map-step-5{
-  border-radius:42px 42px 90px 90px;
+  border-radius:50%;
 }
 
 .map-step-5::before{
-  content:"";
-  position:absolute;
-  right:-108px;
-  top:50%;
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  border:6px solid var(--tangerine);
-  border-top-color:transparent;
-  transform:translateY(-50%);
+  display:none;
 }
 
 .map-decoration{
@@ -475,7 +481,7 @@ footer{padding:36px 0;text-align:center;font-size:.85rem;color:var(--body-text-s
 
 .map-x{
   left:4%;
-  top:52%;
+  top:55%;
   font-size:4.5rem;
   color:var(--charcoal);
   opacity:.95;
@@ -483,7 +489,7 @@ footer{padding:36px 0;text-align:center;font-size:.85rem;color:var(--body-text-s
 
 .map-pin{
   right:4%;
-  top:52%;
+  top:55%;
   font-size:5rem;
   color:var(--charcoal);
   opacity:.95;
@@ -494,54 +500,76 @@ footer{padding:36px 0;text-align:center;font-size:.85rem;color:var(--body-text-s
 @media (max-width:640px){
   #metodo,
   #offerta{
-    scroll-margin-top:96px;
+    scroll-margin-top:108px;
   }
 
-  .problem-map-section::after{
-    top:58%;
+  .problem-map-head{
+    margin-bottom:16px;
   }
 
   .problem-map-marquee{
-    min-height:290px;
+    min-height:300px;
+  }
+
+  .map-path-svg{
+    top:78px;
+    height:220px;
+    width:150%;
+    left:-25%;
+  }
+
+  .map-path-svg path{
+    stroke-width:3;
+    stroke-dasharray:2 13;
+  }
+
+  .problem-map-section .marquee-wrap{
+    padding-top:46px;
+    padding-bottom:52px;
   }
 
   .problem-map-section .marquee-track,
   .problem-map-section .marquee-set{
-    gap:52px;
+    gap:64px;
   }
 
   .map-step{
-    width:178px;
-    height:178px;
-    padding:24px 20px 20px;
-  }
-
-  .map-step::after{
-    right:-50px;
-    width:44px;
+    width:148px;
+    height:148px;
+    padding:21px 15px 16px;
   }
 
   .map-step-icon{
-    width:42px;
-    height:42px;
-    border-radius:16px;
-    font-size:1.35rem;
-    margin-bottom:10px;
+    width:36px;
+    height:36px;
+    border-radius:14px;
+    font-size:1.12rem;
+    margin-bottom:8px;
   }
 
   .map-step-number{
-    width:36px;
-    height:36px;
-    top:-15px;
+    width:32px;
+    height:32px;
+    top:-13px;
+    font-size:.88rem;
   }
 
   .map-step p{
-    font-size:.82rem;
+    font-size:.72rem;
+  }
+
+  .map-step-line{
+    width:26px;
+    margin-top:9px;
   }
 
   .map-step-2,
   .map-step-4{
-    transform:translateY(54px);
+    transform:translateY(56px);
+  }
+
+  .map-step-3{
+    transform:translateY(-10px);
   }
 
   .map-decoration{display:none;}

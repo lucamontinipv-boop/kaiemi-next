@@ -34,6 +34,11 @@ export default function ProblemSection() {
       </div>
 
       <div className="problem-map-marquee">
+        <svg className="map-path-svg" viewBox="0 0 1320 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 162 C 105 85, 225 92, 315 158 S 495 250, 605 156 S 795 58, 915 155 S 1115 250, 1340 110" />
+          <path className="map-path-soft" d="M-40 210 C 110 150, 250 150, 365 218 S 555 290, 685 205 S 875 125, 990 205 S 1180 275, 1360 180" />
+        </svg>
+
         <Marquee duration={42}>
           {problemaItems.map((item, index) => (
             <div className={`map-step map-step-${index + 1}`} key={item}>
