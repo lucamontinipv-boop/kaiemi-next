@@ -19,11 +19,6 @@ export default function Hero() {
           una community reale e costruire le basi per monetizzare online.
         </p>
 
-        <p className="micro reveal">
-          4 sessioni + 1 follow-up · Percorso individuale · Massimo 5 persone
-          al mese
-        </p>
-
         <div className="cta-row reveal">
           <a href="#offerta" className="btn btn-primary">
             Prenota una call informativa

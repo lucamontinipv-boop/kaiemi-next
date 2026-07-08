@@ -20,9 +20,6 @@ export default function WhatsappCta() {
   return (
     <section className="finale" id="finale">
       <div className="container finale-wrap">
-        <div className="finale-img reveal">
-          <img src="/images/community-people.webp" alt="Community Kaiemi Coaching" loading="lazy" width="120" height="120" />
-        </div>
         <div className="section-head center reveal">
           <span className="eyebrow">Ultimo passo</span>
           <h2>Iniziamo a costruire<br />il tuo <span className="accent">personal brand</span>.</h2>
