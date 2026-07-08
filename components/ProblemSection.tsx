@@ -28,7 +28,7 @@ function highlightText(text: string, phrase: string) {
 function RoutePath() {
   return (
     <svg className="moving-map-path" viewBox="0 0 1760 340" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M -120 176 C 20 176 72 136 180 142 C 292 148 315 236 450 236 C 590 236 600 166 720 166 C 842 166 846 112 960 122 C 1076 132 1060 224 1202 220 C 1340 216 1338 142 1462 146 C 1580 150 1604 176 1760 176 C 1840 176 1885 170 1940 166" />
+      <path d="M 0 176 C 130 176 132 134 250 142 C 370 150 358 236 500 236 C 640 236 642 164 762 166 C 884 168 890 122 1004 130 C 1124 138 1112 226 1254 220 C 1390 214 1402 148 1524 152 C 1640 156 1662 176 1760 176" />
     </svg>
   );
 }
@@ -44,7 +44,7 @@ export default function ProblemSection() {
 
     let groupWidth = 0;
     let offset = 0;
-    let speed = 34;
+    let speed = 36;
     let lastTime = performance.now();
     let paused = false;
     let dragging = false;
@@ -60,18 +60,18 @@ export default function ProblemSection() {
     };
 
     const measure = () => {
-      const group = track.querySelector<HTMLElement>(".problem-route-group");
-      if (!group) return;
-      groupWidth = group.offsetWidth;
-      offset = -groupWidth;
-      applyTransform(false);
-    };
+  const group = track.querySelector<HTMLElement>(".problem-route-group");
+  if (!group) return;
+  groupWidth = group.offsetWidth;
+  offset = -groupWidth;
+  applyTransform(false);
+};
 
     const normalize = () => {
-      if (!groupWidth) return;
-      while (offset >= 0) offset -= groupWidth;
-      while (offset <= -groupWidth * 2) offset += groupWidth;
-    };
+  if (!groupWidth) return;
+  while (offset >= 0) offset -= groupWidth;
+  while (offset < -groupWidth) offset += groupWidth;
+};
 
     const applyTransform = (shouldNormalize = true) => {
       if (shouldNormalize) normalize();
@@ -100,8 +100,8 @@ export default function ProblemSection() {
       lastTime = now;
 
       if (!paused && !dragging && groupWidth) {
-        // Positive offset = the whole route moves from left to right.
-        offset += speed * dt;
+        // LEFT → RIGHT: positive offset moves the entire route and cards to the right.
+       offset -= speed * dt;
         applyTransform(true);
       }
 
