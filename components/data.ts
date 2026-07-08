@@ -48,7 +48,7 @@ export const autoritaItems = [
   { num: "40+", label: "Persone accompagnate" },
   { num: "3", label: "Anni di esperienza" },
   { num: "1:1", label: "Percorso privato" },
-  { num: "Tu + Noemi", label: "Lavoro personalizzato" },
+  { num: "100% personalizzato", label: "Percorso costruito su di te" },
 ];
 
 export const faqItems = [

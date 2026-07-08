@@ -10,7 +10,7 @@ export default function AuthoritySection() {
             Un percorso privato,<br />costruito <span className="accent">su di te</span>.
           </h2>
           <p>
-            Non sei dentro una classe generica. Il lavoro è 1:1: sarete solo io e te, con spazio per analizzare il tuo profilo, la tua storia e il modo migliore per trasformarli in un progetto reale.
+            Non sei dentro una classe generica. Il lavoro è 1:1: saremo solo io e te, con spazio per analizzare il tuo profilo, la tua storia e il modo migliore per trasformarli in un progetto reale.
           </p>
         </div>
 
