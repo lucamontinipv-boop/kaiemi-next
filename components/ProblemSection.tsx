@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Coins, Compass, Lock, Map, Mountain } from "lucide-react";
 import { problemaItems } from "./data";
 
-const problemIcons = ["♙", "◈", "✦", "▣", "⚑"];
+const problemIcons = [Compass, Map, Coins, Lock, Mountain];
 const highlightWords = [
   "cosa comunicare",
-  "direzione chiara",
+  "nessuna parte",
   "iniziare",
   "abbastanza interessante",
-  "partire",
+  "nessuna",
 ];
 
 function highlightText(text: string, phrase: string) {
@@ -60,18 +61,18 @@ export default function ProblemSection() {
     };
 
     const measure = () => {
-  const group = track.querySelector<HTMLElement>(".problem-route-group");
-  if (!group) return;
-  groupWidth = group.offsetWidth;
-  offset = -groupWidth;
-  applyTransform(false);
-};
+      const group = track.querySelector<HTMLElement>(".problem-route-group");
+      if (!group) return;
+      groupWidth = group.offsetWidth;
+      offset = -groupWidth;
+      applyTransform(false);
+    };
 
     const normalize = () => {
-  if (!groupWidth) return;
-  while (offset >= 0) offset -= groupWidth;
-  while (offset < -groupWidth) offset += groupWidth;
-};
+      if (!groupWidth) return;
+      while (offset >= 0) offset -= groupWidth;
+      while (offset < -groupWidth) offset += groupWidth;
+    };
 
     const applyTransform = (shouldNormalize = true) => {
       if (shouldNormalize) normalize();
@@ -100,10 +101,10 @@ export default function ProblemSection() {
       lastTime = now;
 
       if (!paused && !dragging && groupWidth) {
-        // LEFT → RIGHT: positive offset moves the entire route and cards to the right.
-       offset -= speed * dt;
-        applyTransform(true);
-      }
+  // LEFT → RIGHT visual direction
+  offset -= speed * dt;
+  applyTransform(true);
+}
 
       rafId = requestAnimationFrame(tick);
     };
@@ -227,14 +228,19 @@ export default function ProblemSection() {
             <div className="problem-route-group" key={groupIndex} aria-hidden={groupIndex > 0 ? "true" : undefined}>
               <RoutePath />
 
-              {problemaItems.map((item, index) => (
-                <article className={`map-step map-step-${index + 1}`} key={`${groupIndex}-${item}`}>
-                  <span className="map-step-number">{index + 1}</span>
-                  <span className="map-step-icon">{problemIcons[index]}</span>
-                  <p>{highlightText(item, highlightWords[index])}</p>
-                  <span className="map-step-line" />
-                </article>
-              ))}
+              {problemaItems.map((item, index) => {
+                const Icon = problemIcons[index];
+                return (
+                  <article className={`map-step map-step-${index + 1}`} key={`${groupIndex}-${item}`}>
+                    <span className="map-step-number">{index + 1}</span>
+                    <span className="map-step-icon">
+                      <Icon size={25} strokeWidth={1.9} aria-hidden="true" />
+                    </span>
+                    <p>{highlightText(item, highlightWords[index])}</p>
+                    <span className="map-step-line" />
+                  </article>
+                );
+              })}
             </div>
           ))}
         </div>

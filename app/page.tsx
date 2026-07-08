@@ -1,4 +1,5 @@
 import AntiFuffaSection from "@/components/AntiFuffaSection";
+import AboutNoemiSection from "@/components/AboutNoemiSection";
 import AuthoritySection from "@/components/AuthoritySection";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
@@ -23,6 +24,7 @@ export default function Home() {
         <LearnSection />
         <OfferSection />
         <AntiFuffaSection />
+        <AboutNoemiSection />
         <AuthoritySection />
         <FaqSection />
         <WhatsappCta />

@@ -1,9 +1,9 @@
 export const problemaItems = [
   "Hai un profilo, ma non sai cosa comunicare",
-  "Pubblichi contenuti senza una direzione chiara",
+  "Pubblichi ogni settimana, ma senti che non ti sta portando da nessuna parte",
   "Vorresti monetizzare, ma non sai da dove iniziare",
   "Ti blocchi perché pensi di non essere abbastanza interessante",
-  "Senti che tutto è troppo grande per partire",
+  "Hai troppe idee in testa e nessuna ti sembra pronta da pubblicare davvero",
 ];
 
 export const metodoItems = [
@@ -27,28 +27,45 @@ export const metodoItems = [
   },
 ];
 
-export const impariItems = [
-  "Chiarire il tuo messaggio personale",
-  "Capire a chi vuoi parlare davvero",
-  "Costruire la tua MAPS: messaggio, angle, pilastri e story",
-  "Ottimizzare profilo, bio, highlights e prima impressione",
-  "Creare contenuti growth e contenuti di fidelizzazione",
-  "Scrivere hook più forti e meno generici",
-  "Strutturare reel con hook, corpo e CTA",
-  "Usare caroselli, stories e DM per creare fiducia",
-  "Creare freebie e micro-offerte utili alla community",
-  "Leggere analytics, salvataggi, condivisioni e retention",
-  "Organizzare script, registrazione ed editing senza burnout",
-  "Capire le prime strade di monetizzazione: UGC, affiliate, collaborazioni",
-  "Preparare media kit, pitch e proposta per i brand",
-  "Trasformare ciò che sai in prodotti digitali, servizi o percorsi",
+export const impariGroups = [
+  {
+    title: "Fase 1 — Creazione community",
+    items: [
+      "Chiarire il tuo messaggio personale",
+      "Capire a chi vuoi parlare davvero",
+      "Costruire la tua MAPS: messaggio, angle, pilastri e story",
+      "Ottimizzare profilo, bio, highlights e prima impressione",
+      "Creare contenuti growth e contenuti di fidelizzazione",
+      "Scrivere hook più forti e meno generici",
+      "Strutturare reel con hook, corpo e CTA",
+    ],
+  },
+  {
+    title: "Fase 2 — Fidelizzazione",
+    items: [
+      "Usare caroselli, stories e DM per creare fiducia",
+      "Leggere analytics, salvataggi, condivisioni e retention",
+      "Organizzare script, registrazione ed editing senza burnout",
+    ],
+  },
+  {
+    title: "Fase 3 — Monetizzazione",
+    items: [
+      "Creare freebie e micro-offerte utili alla community",
+      "Capire le prime strade di monetizzazione: UGC, affiliate, collaborazioni",
+      "Preparare media kit, pitch e proposta per i brand",
+      "Trasformare ciò che sai in prodotti digitali, servizi o percorsi",
+    ],
+  },
 ];
+
+export const impariItems = impariGroups.flatMap((group) => group.items);
 
 export const autoritaItems = [
   { num: "40+", label: "Persone accompagnate" },
   { num: "3", label: "Anni di esperienza" },
   { num: "1:1", label: "Percorso privato" },
-  { num: "100%", label: "Percorso costruito su di te" },
+  { num: "100%", label: "Personalizzato" },
 ];
 
 export const faqItems = [

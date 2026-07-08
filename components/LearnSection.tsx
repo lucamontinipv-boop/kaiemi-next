@@ -1,4 +1,4 @@
-import { impariItems } from "./data";
+import { impariGroups } from "./data";
 
 export default function LearnSection() {
   return (
@@ -12,12 +12,19 @@ export default function LearnSection() {
           </p>
         </div>
 
-        <div className="learn-panel reveal">
-          {impariItems.map((item) => (
-            <div className="learn-row" key={item}>
-              <span className="learn-check">✓</span>
-              <span>{item}</span>
-            </div>
+        <div className="learn-phases-grid reveal">
+          {impariGroups.map((group) => (
+            <article className="learn-phase-card" key={group.title}>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item}>
+                    <span className="learn-check">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
         </div>
       </div>

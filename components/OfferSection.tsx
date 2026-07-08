@@ -19,10 +19,10 @@ export default function OfferSection() {
             <div className="offer-item"><span className="check">✓</span> 1 sessione follow-up</div>
             <div className="offer-item"><span className="check">✓</span> Analisi profilo</div>
             <div className="offer-item"><span className="check">✓</span> Strategia personal brand</div>
-            <div className="offer-item"><span className="check">✓</span> Metodo contenuti</div>
-            <div className="offer-item"><span className="check">✓</span> Community e monetizzazione</div>
+            <div className="offer-item"><span className="check">✓</span> Metodo contenuti: hook, struttura, editing</div>
+            <div className="offer-item"><span className="check">✓</span> Community, fiducia e prime monetizzazioni</div>
           </div>
-          <p className="offer-note">Per il prezzo e la disponibilità del percorso, scrivimi direttamente su WhatsApp: ti rispondo io personalmente.</p>
+          <p className="offer-note">Il percorso ha un investimento di 350€. Scrivimi su WhatsApp per verificare la disponibilità del mese (solo 5 posti) e prenotare la tua call informativa.</p>
           <a href="#finale" className="btn btn-primary btn-block">Scrivimi su WhatsApp per maggiori info</a>
         </div>
       </div>

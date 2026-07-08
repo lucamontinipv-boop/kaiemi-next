@@ -174,7 +174,7 @@ export default function Marquee({ children, duration = 34 }: MarqueeProps) {
     <div className="marquee-wrap reveal" ref={wrapRef}>
       <div className="marquee-track" ref={trackRef}>
         {copies.map((_, index) => (
-          <div className="marquee-set" key={index}>
+          <div className="marquee-set" key={index} aria-hidden={index > 0 ? "true" : undefined}>
             {children}
           </div>
         ))}
