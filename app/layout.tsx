@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
+import CookieConsent from "./CookieConsent";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -80,17 +80,22 @@ export default function RootLayout({
     <html lang="it">
       <body>{children}</body>
 
-      <GoogleAnalytics gaId="G-Y9XVME9PRS" />
-
-      <Script id="microsoft-clarity" strategy="afterInteractive">
+      {/* Imposta il consenso negato prima del caricamento dei tag. */}
+      <Script id="google-consent-default" strategy="beforeInteractive">
         {`
-          (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "xmpprlihxo");
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied',
+            wait_for_update: 500
+          });
         `}
       </Script>
+
+      <CookieConsent />
     </html>
   );
 }

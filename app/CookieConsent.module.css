@@ -1,0 +1,132 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(15, 15, 15, 0.32);
+  backdrop-filter: blur(4px);
+}
+
+.banner {
+  width: min(760px, 100%);
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  background: #202020;
+  color: #ffffff;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+}
+
+.copy h2 {
+  margin: 4px 0 10px;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  line-height: 1.15;
+}
+
+.copy p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.eyebrow {
+  color: #d9ff4f !important;
+  font-size: 0.72rem !important;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.details {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+}
+
+.details summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.details p {
+  margin-top: 9px;
+  font-size: 0.87rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.primaryButton,
+.secondaryButton,
+.preferencesButton {
+  border: 0;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-width: 120px;
+  padding: 12px 18px;
+  border-radius: 999px;
+}
+
+.primaryButton {
+  background: #d9ff4f;
+  color: #151515;
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible,
+.preferencesButton:focus-visible {
+  outline: 3px solid #d9ff4f;
+  outline-offset: 3px;
+}
+
+.preferencesButton {
+  position: fixed;
+  left: 14px;
+  bottom: 14px;
+  z-index: 9998;
+  padding: 9px 13px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #202020;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.14);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 560px) {
+  .backdrop {
+    padding: 10px;
+  }
+
+  .banner {
+    padding: 20px;
+    border-radius: 19px;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+}
