@@ -7,27 +7,27 @@ import styles from "./CookieConsent.module.css";
 
 type ConsentChoice = "accepted" | "rejected" | null;
 
-declare global {
-  interface Window {
-    dataLayer: unknown[];
-    gtag?: (...args: unknown[]) => void;
-    clarity?: (...args: unknown[]) => void;
-  }
-}
+type AnalyticsWindow = Window & {
+  dataLayer?: unknown[];
+  gtag?: (...args: unknown[]) => void;
+  clarity?: (...args: unknown[]) => void;
+};
 
 const STORAGE_KEY = "kaiemi_cookie_consent";
 const GA_ID = "G-Y9XVME9PRS";
 const CLARITY_ID = "xmpprlihxo";
 
 function updateGoogleConsent(value: "granted" | "denied") {
-  window.dataLayer = window.dataLayer || [];
-  window.gtag =
-    window.gtag ||
+  const analyticsWindow = window as AnalyticsWindow;
+
+  analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
+  analyticsWindow.gtag =
+    analyticsWindow.gtag ||
     function gtag(...args: unknown[]) {
-      window.dataLayer.push(args);
+      analyticsWindow.dataLayer?.push(args);
     };
 
-  window.gtag("consent", "update", {
+  analyticsWindow.gtag("consent", "update", {
     ad_storage: value,
     ad_user_data: value,
     ad_personalization: value,
@@ -39,7 +39,10 @@ function clearAnalyticsCookies() {
   const cookieNames = document.cookie
     .split(";")
     .map((cookie) => cookie.trim().split("=")[0])
-    .filter((name) => name === "_ga" || name.startsWith("_ga_") || name.startsWith("_cl"));
+    .filter(
+      (name) =>
+        name === "_ga" || name.startsWith("_ga_") || name.startsWith("_cl")
+    );
 
   for (const name of cookieNames) {
     document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
@@ -77,15 +80,17 @@ export default function CookieConsent() {
   }
 
   function rejectCookies() {
+    const analyticsWindow = window as AnalyticsWindow;
+
     window.localStorage.setItem(STORAGE_KEY, "rejected");
     updateGoogleConsent("denied");
 
-    if (typeof window.clarity === "function") {
-      window.clarity("consentv2", {
+    if (typeof analyticsWindow.clarity === "function") {
+      analyticsWindow.clarity("consentv2", {
         ad_Storage: "denied",
         analytics_Storage: "denied",
       });
-      window.clarity("consent", false);
+      analyticsWindow.clarity("consent", false);
     }
 
     clearAnalyticsCookies();
@@ -152,10 +157,18 @@ export default function CookieConsent() {
             </div>
 
             <div className={styles.actions}>
-              <button className={styles.secondaryButton} type="button" onClick={rejectCookies}>
+              <button
+                className={styles.secondaryButton}
+                type="button"
+                onClick={rejectCookies}
+              >
                 Rifiuta
               </button>
-              <button className={styles.primaryButton} type="button" onClick={acceptCookies}>
+              <button
+                className={styles.primaryButton}
+                type="button"
+                onClick={acceptCookies}
+              >
                 Accetta
               </button>
             </div>
