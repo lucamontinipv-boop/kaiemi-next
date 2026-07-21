@@ -65,6 +65,11 @@ export const metadata: Metadata = {
       "Un percorso 1:1 per creare una strategia, una community reale e un personal brand sostenibile su Instagram.",
     images: ["/og-image.png"],
   },
+
+  other: {
+    "trustpilot-one-time-domain-verification-id":
+      "524a42d0-9273-44fc-a25f-459e890a4786",
+  },
 };
 
 export const viewport: Viewport = {
