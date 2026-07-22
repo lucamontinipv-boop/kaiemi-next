@@ -69,6 +69,8 @@ export const metadata: Metadata = {
   other: {
     "trustpilot-one-time-domain-verification-id":
       "524a42d0-9273-44fc-a25f-459e890a4786",
+    "trustpilot-support-verification":
+      "This website, kaiemi.it, is owned and managed by Noemi. The Trustpilot Business account is associated with info.noemicreator@gmail.com. Support reference: thread::zZbiir6jfyu2B3kE5FNYc2A::",
   },
 };
 
