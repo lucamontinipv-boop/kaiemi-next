@@ -1,4 +1,4 @@
-const VAT_NUMBER = "85.59.99";
+const VAT_NUMBER = "03048800183";
 
 export default function Footer() {
   return (
